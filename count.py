@@ -6,7 +6,7 @@ def count_chinese(text):
     return len(re.findall(r'[\u4e00-\u9fff]', text))
 
 def count_files(paths):
-    total = 0
+    cumulative = 0
     for path in paths:
         p = Path(path)
         if p.is_dir():
@@ -16,16 +16,15 @@ def count_files(paths):
 
         files = sorted(
             [f for f in files if f.stem.isdigit()],
-            key=lambda f: f.name
+            key=lambda f: int(f.stem)
         )
 
         for f in files:
             text = f.read_text(encoding='utf-8')
             count = count_chinese(text)
-            print(f"{f}: {count:,} 字")
-            total += count
+            cumulative += count
+            print(f"{f}: {count:,} 字，累计：{cumulative:,} 字")
 
-    print(f"\n合计：{total:,} 字")
 
 if __name__ == '__main__':
     paths = sys.argv[1:] or ['.']
