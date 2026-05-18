@@ -1,0 +1,18 @@
+p {
+  text-indent: 2em;
+  margin-top: 0.6em;
+  margin-bottom: 0.6em;
+  line-height: 1.8;
+}
+
+h1 {
+  text-align: center;
+  margin-top: 2em;
+  margin-bottom: 1em;
+}
+
+hr {
+  border: none;
+  margin-top: 1.5em;
+  margin-bottom: 1.5em;
+}
