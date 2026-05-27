@@ -1,8 +1,11 @@
 import os
 from pathlib import Path
+from datetime import date
 
 OUTPUT_FILE = 'manuscript.md'
-OUTPUT_EPUB = 'manuscript.epub'
+
+today = date.today().strftime('%Y%m%d')
+OUTPUT_EPUB = f'manuscript_{today}.epub'
 
 def process_content(text):
     """每行独立成段，原始空行替换为分隔线"""
